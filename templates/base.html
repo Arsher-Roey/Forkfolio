@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}ARSHER | PORTFOLIO{% endblock %}</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=linked_services,stacks" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <a href="/" class="logo">Arsher</a>
+    
+    <div class="nav-container">
+      <nav class="navbar">
+        <a href="/" class="{% if active_page == 'home' %}active{% endif %}">Home</a>
+        <a href="/profile" class="{% if active_page == 'profile' %}active{% endif %}">Profile</a>
+
+        <div class="nav-work">
+          <a href="/works" class="{% if active_page == 'works' %}active{% endif %}">
+            Works <i class='bx bxs-chevron-down works'></i>
+          </a>
+          <ul class="dropdowns">
+            <li><a href="/touppercase"><i class='bx bx-font-size'></i> To Uppercase</a></li>
+            <li><a href="/areaofcircle"><i class='bx bx-circle'></i> Area of Circle</a></li>
+            <li><a href="/areaoftriangle"><i class='bx bx-shape-triangle'></i> Area of Triangle</a></li>
+</span>
+            <li><a href="/linked-list"><i class='material-symbols-outlined'>linked_services</i> Linked-List</a></li>
+            <li><a href="/infix-to-postfix"><i class='material-symbols-outlined'>stacks</i> Stack Conversion</a></li>
+          </ul>
+        </div>
+
+        <a href="/contact" class="{% if active_page == 'contact' %}active{% endif %}">Contact</a>
+      </nav>
+    </div>  
+  </header>
+  
+  <!-- MAIN CONTENT -->
+  <main>
+    {% block content %}
+    <!-- Page-specific content goes here -->
+    {% endblock %}
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 Arsher Ampon. All Rights Reserved.</p>
+      <div class="socials">
+        <a href="https://github.com/Arsher-Roey" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/arsher-roey-ampon-893276358" target="_blank">LinkedIn</a>
+        <a href="mailto:arsherroeyampon@gmail.com">Email</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
