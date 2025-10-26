@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}Works | Arsher{% endblock %}
+
+{% block content %}
+<main id="works-main-layout">
+  <section class="work-page">
+    <div class="work-content">
+      <h1>My Works</h1>
+    </div>
+    
+    <div class="card-container">
+      <a href="/touppercase" class="card">
+        <img src="{{ url_for('static', filename='images/LETTERS.jpg') }}" alt="Work 1">
+        <div class="overlay">
+          <h2>To Uppercase</h2>
+          <p>Converting Lowercase Letters to Uppercase</p>
+        </div>
+      </a>
+      
+      <a href="/areaofcircle" class="card">
+        <img src="{{ url_for('static', filename='images/circles.jpg') }}" alt="Work 2">
+        <div class="overlay">
+          <h2>Area of Circle</h2>
+          <p>Calculate Area of Circle</p>
+        </div>
+      </a>
+      
+      <a href="/areaoftriangle" class="card">
+        <img src="{{ url_for('static', filename='images/triangle.jpg') }}" alt="Work 3">
+        <div class="overlay">
+          <h2>Area of Triangle</h2>
+          <p>Calculate Area of Triangle</p>
+        </div>
+      </a>
+      
+      <a href="/linked-list" class="card">
+        <img src="{{ url_for('static', filename='images/chains.jpg') }}" alt="Work 4">
+        <div class="overlay">
+          <h2>Linked List</h2>
+          <p>Simulate Linked List</p>
+        </div>
+      </a>
+      
+      <a href="/infix-to-postfix" class="card">
+        <img src="{{ url_for('static', filename='images/stacks.jpg') }}" alt="Work 5">
+        <div class="overlay">
+          <h2>Infix to Postfix</h2>
+          <p>Infix to Postfix Expression Conversion</p>
+        </div>
+      </a>
+    </div>  
+  </section>
+</main>  
+{% endblock %}

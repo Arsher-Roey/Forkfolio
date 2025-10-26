@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block title %}Profile | Arsher{% endblock %}
+
+{% block content %}
+  <section class="profile">
+    <img 
+        src="{{ url_for('static', filename='images/profile-front.png') }}" 
+        alt="1x1-front" 
+        class="front-1x1"
+        
+        onmouseover="startSpin(this)"
+        onmouseout="stopSpin(this)"
+        data-spin-images='[
+            "{{ url_for('static', filename='images/profile-front.png') }}",
+            "{{ url_for('static', filename='images/profile-sideleft.png') }}",
+            "{{ url_for('static', filename='images/profile-back.png') }}",
+            "{{ url_for('static', filename='images/profile-sideright.png') }}"
+        ]'
+        >
+    <div class="profile-content">
+      <h1>Arsher Roey Ampon</h1>
+    <div class="tabbed">
+      <input type="radio" name="tabs" id="info" checked>
+      <label for="info">About Me</label>
+      
+      <input type="radio" name="tabs" id="education">
+      <label for="education">Education</label>
+      
+      <input type="radio" name="tabs" id="workexp">
+      <label for="workexp">Pre-Proffesional Experience </label>
+      
+      <input type="radio" name="tabs" id="certificates">
+      <label for="certificates">Certificates & Training</label>
+      <input type="radio" name="tabs" id="skills">
+      <label for="skills">Skills</label>
+     
+      <div class="tabs">
+        <div id="tab-info">
+          <h2>About Me</h2>
+          <p>Age: 19</p>
+          <p>Birthday: January 31, 2006</p>
+          <p>Based on: Manila, Valenzuela City, PH</p>
+          <p>Language: Filipino & English</p>
+          <p>Programming Language: Python, C++, and Java</p>
+        </div>
+          
+        <div id="tab-education">
+          <h2>Education</h2>
+          <p>Undergraduate: Bachelor of Science in Computer Engineering, Polytechnic University of the Philippines, 2024-Present</p>
+          <p>Senior High School: Science, Technology, Engineering, and Mathematics, Gen. Tiburcio De Leon National High School, 2022-2024</p>
+          <p>High School: Gen. Tiburcio National High School</p>
+          </div>
+          
+        <div id="tab-workexp">
+          <h2>Pre-Proffesional Experience</h2>
+          <p>TBA</p>
+          </div>
+
+        <div id="certificates">
+          <h2>Certificates & Training</h2>
+          <p>Computer Systems Servicing NC II | TESDA July 2025</p>
+          <p>Networking Devices and Initial Configuration | Cisco July 2025</p>
+          <p>Certificate of Completion - Quantum Computing and Blockchain | QCSP July 2025</p>
+          <p>A Day in Fintech: Transforming Finance Through Innovation | PUP May 2025</p>
+          <p>Rise of the Machines: Exploring the World of Robotics | PUP May 2025</p>
+          <p>Demystifying Artificial Intelligence | PUP May 2025</p>
+          <p>Principle of Graphic Design | University of the Philippines OU February 2025</p>
+        </div>
+
+        <div id="skills">
+          <h2>Skills</h2>
+          <p>Programming Languages: Python (Intermediate), R (Intermediate), Java (Basic), C++ (Basic)
+          <p>IT & Systems: Computer Systems Servicing, Hardware & Software Troubleshooting, Network Configuration &
+Maintenance, IT Support, Cisco IOS, Microsoft Office Suite (Excel, Word, PowerPoint          </p>
+          <p>Emerging Technologies: Artificial Intelligence (AI) Concepts, Blockchain Technology, Quantum Computing</p>
+          <p>STEM & Research: Research & Data Analysis, Scientific Method Application, Sustainable Waste Management, Algorithm Design</p>
+        </div>
+
+      </div>
+        
+  </div>
+  </div
+  </section>
+<script src="{{ url_for('static', filename='js/spin.js') }}"></script>
+{% endblock %}

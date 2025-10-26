@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Area of Circle | ARSHER PORTFOLIO{% endblock %}
+
+{% block content %}
+<main id="circle-main-layout">
+    <section class="areaofcircle">
+        <h1>Calculate Area of Circle</h1>
+
+        <div class="container"> 
+            <form action="/areaofcircle" method="post">
+                <label for="radius">Enter radius:</label>
+                <!-- This input is type="number" -->
+                <input type="number" id="radius" name="radius" required> 
+                <input type="submit" value="Calculate">
+            </form>
+        </div>
+
+        {% if area %}
+        <p class="result-display">Area of the Circle: {{ area }}</p>
+        {% endif %}
+    </section>
+</main>
+{% endblock %}

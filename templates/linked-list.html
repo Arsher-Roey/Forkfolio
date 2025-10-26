@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block title %}Linked List | ARSHER PORTFOLIO{% endblock %}
+
+{% block content %}
+<main id="linked-list-main-layout">
+  <section class="linked-list">
+    <h1>Linked List</h1>
+    
+    <div class="linked-list-header">
+      <h3>Current Linked List:</h3>
+    </div>
+
+    <div class="linked-list-display">
+      {% if linked_list and linked_list|length > 0 %}
+        <div class="linked-list-chain">
+          {% for node in linked_list %}
+            <div class="node">{{ node }}</div>
+            {% if not loop.last %}
+              <div class="arrow">→</div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% else %}
+        <p class="empty">Linked list is empty</p>
+      {% endif %}
+    </div>
+
+    <div class="container">
+      <form method="post" action="/linked-list/insert_end">
+        <label for="data">Enter Data:</label>
+        <input type="text" id="data" name="data" placeholder="Enter a value" required>
+        <div class="insert-buttons">
+          <button formaction="/linked-list/insert_beginning">Insert at Beginning</button>
+          <button formaction="/linked-list/insert_end">Insert at End</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="buttons">
+      <button type="button" class="btn3" onclick="openPopup('searchPopup')">Search</button>
+      <a href="/linked-list/remove_beginning" class="btn4">
+        <button type="button">Remove at Beginning</button>
+      </a>
+      <a href="/linked-list/remove_end" class="btn5">
+        <button type="button">Remove at End</button>
+      </a>
+      <button type="button" class="btn6" onclick="openPopup('removePopup')">Remove at [index]</button>
+    </div>
+
+    <div id="searchPopup" class="popup-overlay {% if reopen_search_popup %}active{% endif %}">
+      <div class="popup-box">
+        <h2>Search in Linked List</h2>
+        <form action="/linked-list/search" method="post">
+          <input type="text" name="search_data" placeholder="Enter value to search"
+                 value="{{ search_query or '' }}" required>
+          <div class="popup-actions">
+            <button type="submit">Search</button>
+            <button type="button" class="cancel" onclick="closePopup('searchPopup')">Cancel</button>
+          </div>
+        </form>
+
+        {% if search_query %}
+          {% if search_result %}
+            <p class="search-success">“{{ search_query }}” found in linked list!</p>
+          {% else %}
+            <p class="search-fail">“{{ search_query }}” not found in linked list.</p>
+          {% endif %}
+        {% endif %}
+      </div>
+    </div>
+
+    <div id="removePopup" class="popup-overlay">
+      <div class="popup-box">
+        <h2>Remove Node at Index</h2>
+        <form action="/linked-list/remove_at" method="post">
+          <input type="number" name="index" placeholder="Enter index" required>
+          <div class="popup-actions">
+            <button type="submit">Remove</button>
+            <button type="button" class="cancel" onclick="closePopup('removePopup')">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      function openPopup(id) {
+        document.getElementById(id).classList.add('active');
+      }
+
+      function closePopup(id) {
+        document.getElementById(id).classList.remove('active');
+      }
+    </script>
+  </section>
+</main>
+{% endblock %}

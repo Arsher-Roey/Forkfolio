@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}To Uppercase | ARSHER PORTFOLIO{% endblock %}
+
+{% block content %}
+<main id="touppercase-main-layout">
+    <section class="touppercase">
+        <h1>Convert String to Uppercase</h1>
+        
+        <div class="container"> 
+            <form action="/touppercase" method="post">
+                <label for="inputString">Enter a string:</label>
+                <input type="text" id="inputString" name="inputString">
+                <input type="submit" value="Convert">
+            </form>
+        </div>
+        
+        {% if result %}
+        <p class="result-display">Converted string: {{ result }}</p>
+        {% endif %}
+    </section>
+</main>
+{% endblock %}
