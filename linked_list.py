@@ -75,20 +75,30 @@ class LinkedList:
         
         self.tail.next = None
         
-    def remove_at(self, index):
-        if index<0:
-            raise Exception("Invalid Index. Please input correct index number.")
-        
-        if index==0:
-            self.head = self.head.next
-            return
+    def remove_at(self, data):
+        if self.head is None:
+            return None
             
-        count = 0
-        itr = self.head
-        while itr:
-            if count == index - 1:
-                itr.next = itr.next.next
-                break
+        if self.head.data == data:
+            removed_data = self.head.data
+            self.head = self.head.next
+            
+            if self.head is None:
+                self.tail = None 
                 
-            itr = itr.next
-            count += 1
+            return removed_data
+            
+        current_node = self.head
+        while current_node.next:
+            if current_node.next.data == data:
+                removed_data = current_node.next.data
+                
+                if current_node.next == self.tail:
+                    self.tail = current_node
+                    
+                current_node.next = current_node.next.next
+                return removed_data
+                
+            current_node = current_node.next
+            
+        return None
