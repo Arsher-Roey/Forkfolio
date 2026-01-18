@@ -85,12 +85,18 @@ def remove_end():
     
 @app.route('/linked-list/remove_at', methods=['POST'])
 def remove_at():
-    try:
-        index = int(request.form['index'])
-        ll.remove_at(index)
-    except Exception as e:
-        print(e)
-    return redirect(url_for('linkedlist'))
+    data = request.form.get('data', '').strip()
+    removed = None
+    
+    if data:
+       removed = ll.remove_at(data)
+       
+    return render_template('linked-list.html',
+    linked_list=ll.print_list(),
+    remove_data=data,
+    remove_result=removed,
+    reopen_remove_popup=True,
+    active_page='works')
     
 @app.route('/linked-list/search', methods=['POST'])
 def search():
@@ -120,4 +126,4 @@ def contact():
     return render_template('contact.html', active_page='contact')
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)'
