@@ -45,7 +45,7 @@
       <a href="/linked-list/remove_end" class="btn5">
         <button type="button">Remove at End</button>
       </a>
-      <button type="button" class="btn6" onclick="openPopup('removePopup')">Remove at [index]</button>
+      <button type="button" class="btn6" onclick="openPopup('removePopup')">Remove at [data]</button>
     </div>
 
     <div id="searchPopup" class="popup-overlay {% if reopen_search_popup %}active{% endif %}">
@@ -70,16 +70,24 @@
       </div>
     </div>
 
-    <div id="removePopup" class="popup-overlay">
+    <div id="removePopup" class="popup-overlay {% if reopen_remove_popup %}active{% endif %}">
       <div class="popup-box">
-        <h2>Remove Node at Index</h2>
+        <h2>Remove Node by Data</h2>
         <form action="/linked-list/remove_at" method="post">
-          <input type="number" name="index" placeholder="Enter index" required>
+          <input type="text" name="data" placeholder="Enter data ro remove:" value="{{ remove_data or ' '}}" required>
           <div class="popup-actions">
             <button type="submit">Remove</button>
             <button type="button" class="cancel" onclick="closePopup('removePopup')">Cancel</button>
           </div>
         </form>
+        
+        {% if remove_data %}
+            {% if remove_result %}
+                <p class="search-success">Successfully removed "{{ remove_result }}" from linked list!</p>
+            {% else %}
+                <p class="search-fail">No "{{ remove_data }}" found in linked list. :<</p>
+            {% endif %}
+        {% endif %}
       </div>
     </div>
 
