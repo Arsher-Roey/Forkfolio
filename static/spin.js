@@ -1,4 +1,4 @@
-const frameRate = 750; // The spin speed (milliseconds per frame)
+const frameRate = 300; // The spin speed (milliseconds per frame)
 
 /**
  * Starts the frame-by-frame animation automatically.
