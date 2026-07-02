@@ -7,9 +7,6 @@
         src="{{ url_for('static', filename='images/profile-front.png') }}" 
         alt="1x1-front" 
         class="front-1x1"
-        
-        onmouseover="startSpin(this)"
-        onmouseout="stopSpin(this)"
         data-spin-images='[
             "{{ url_for('static', filename='images/profile-front.png') }}",
             "{{ url_for('static', filename='images/profile-sideleft.png') }}",
@@ -27,7 +24,7 @@
       <label for="education">Education</label>
       
       <input type="radio" name="tabs" id="workexp">
-      <label for="workexp">Pre-Proffesional Experience </label>
+      <label for="workexp">Pre-Professional Experience </label>
       
       <input type="radio" name="tabs" id="certificates">
       <label for="certificates">Certificates & Training</label>
@@ -49,12 +46,12 @@
           <p>Undergraduate: Bachelor of Science in Computer Engineering, Polytechnic University of the Philippines, 2024-Present</p>
           <p>Senior High School: Science, Technology, Engineering, and Mathematics, Gen. Tiburcio De Leon National High School, 2022-2024</p>
           <p>High School: Gen. Tiburcio National High School</p>
-          </div>
+        </div>
           
         <div id="tab-workexp">
-          <h2>Pre-Proffesional Experience</h2>
+          <h2>Pre-Professional Experience</h2>
           <p>TBA</p>
-          </div>
+        </div>
 
         <div id="certificates">
           <h2>Certificates & Training</h2>
@@ -69,17 +66,16 @@
 
         <div id="skills">
           <h2>Skills</h2>
-          <p>Programming Languages: Python (Intermediate), R (Intermediate), Java (Basic), C++ (Basic)
-          <p>IT & Systems: Computer Systems Servicing, Hardware & Software Troubleshooting, Network Configuration &
-Maintenance, IT Support, Cisco IOS, Microsoft Office Suite (Excel, Word, PowerPoint          </p>
+          <p>Programming Languages: Python (Intermediate), R (Intermediate), Java (Basic), C++ (Basic)</p>
+          <p>IT & Systems: Computer Systems Servicing, Hardware & Software Troubleshooting, Network Configuration & Maintenance, IT Support, Cisco IOS, Microsoft Office Suite (Excel, Word, PowerPoint)</p>
           <p>Emerging Technologies: Artificial Intelligence (AI) Concepts, Blockchain Technology, Quantum Computing</p>
           <p>STEM & Research: Research & Data Analysis, Scientific Method Application, Sustainable Waste Management, Algorithm Design</p>
         </div>
 
       </div>
         
-  </div>
-  </div
+    </div>
+    </div>
   </section>
 <script src="{{ url_for('static', filename='js/spin.js') }}"></script>
 {% endblock %}
