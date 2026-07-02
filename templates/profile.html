@@ -4,16 +4,16 @@
 {% block content %}
   <section class="profile">
     <img 
-        src="{{ url_for('static', filename='images/profile-front.png') }}" 
-        alt="1x1-front" 
-        class="front-1x1"
-        data-spin-images='[
-            "{{ url_for('static', filename='images/profile-front.png') }}",
-            "{{ url_for('static', filename='images/profile-sideleft.png') }}",
-            "{{ url_for('static', filename='images/profile-back.png') }}",
-            "{{ url_for('static', filename='images/profile-sideright.png') }}"
-        ]'
-        >
+    src="images/profile-front.png" 
+    alt="1x1-front" 
+    class="front-1x1"
+    data-spin-images='[
+        "images/profile-front.png",
+        "images/profile-sideleft.png",
+        "images/profile-back.png",
+        "images/profile-sideright.png"
+    ]'
+>
     <div class="profile-content">
       <h1>Arsher Roey Ampon</h1>
     <div class="tabbed">
@@ -77,5 +77,5 @@
     </div>
     </div>
   </section>
-<script src="{{ url_for('static', filename='js/spin.js') }}"></script>
+<script src="js/spin.js"></script>
 {% endblock %}
